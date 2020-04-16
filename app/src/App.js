@@ -3,6 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar'
 import TypoGraphy from '@material-ui/core/Typography';
 import NavBar from './components/navbar';
+import Users from './components/users';
 
 
 class App extends Component {
@@ -15,6 +16,12 @@ class App extends Component {
             <NavBar/>
           </Toolbar>
         </AppBar>
+        <div
+        style={{margin:'5%'}}>
+        <Users/>
+        
+        </div>
+        
       </div>
     );
   }
