@@ -1,29 +1,46 @@
-import React, { Component } from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar'
-import TypoGraphy from '@material-ui/core/Typography';
-import NavBar from './components/navbar';
-import Users from './components/users';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
+import AddPet from "./components/add-pet.component";
+import Pet from "./components/pet.component";
+import PetsList from "./components/pets-list.component";
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <AppBar color="primary" position="static">
-          <Toolbar>
-            <TypoGraphy variant="title"color="inherit"><h1>PickMe</h1></TypoGraphy>
-            <NavBar/>
-          </Toolbar>
-        </AppBar>
-        <div
-        style={{margin:'5%'}}>
-        <Users/>
-        
+      <Router>
+        <div>
+          <nav className="navbar navbar-expand navbar-dark bg-dark">
+            <a href="/pets" className="navbar-brand">
+              PickMe
+            </a>
+            <div className="navbar-nav mr-auto">
+              <li className="nav-item">
+                <Link to={"/pets"} className="nav-link">
+                  Pets
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to={"/add"} className="nav-link">
+                  Add Pet
+                </Link>
+              </li>
+            </div>
+          </nav>
+
+          <div className="container mt-3">
+            <Switch>
+              <Route exact path={["/", "/pets"]} component={PetsList} />
+              <Route exact path="/add" component={AddPet} />
+              <Route path="/pets/:id" component={Pet} />
+            </Switch>
+          </div>
         </div>
-        
-      </div>
+      </Router>
     );
   }
 }
+
 export default App;

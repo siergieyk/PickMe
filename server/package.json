@@ -1,17 +1,26 @@
 {
-  "name": "back-end",
+  "name": "nodejs-express-sequelize-mysql",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Node.js Rest Apis with Express, Sequelize & MySQL",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "nodejs",
+    "express",
+    "rest",
+    "api",
+    "sequelize",
+    "mysql"
+  ],
+  "author": "bezkoder",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.4",
-    "express": "^4.16.2",
-    "mysql": "^2.15.0"
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mysql2": "^2.0.2",
+    "sequelize": "^5.21.2"
   }
 }
