@@ -1,0 +1,10 @@
+button {
+    background: transparent;
+    color: white;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    float:right;
+    
+}

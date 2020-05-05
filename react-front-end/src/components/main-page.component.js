@@ -1,18 +1,23 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
 
-import AddPet from "./components/add-pet.component";
-import Pet from "./components/pet.component";
-import PetsList from "./components/pets-list.component";
+import AddPet from "./add-pet.component";
+import Pet from "./pet.component";
+import PetsList from "./pets-list.component";
 
-import AddUser from "./components/add-user.component";
-import User from "./components/user.component";
-import UsersList from "./components/users-list.component";
+import AddUser from "./add-user.component";
+import User from "./user.component";
+import UsersList from "./users-list.component";
 
-class App extends Component {
-  render() {
+import { useAuth0 } from './auth0-context';
+
+
+export default function MainPage() {
+    
+      const { isLoading, user, loginWithRedirect, logout } = useAuth0();
+
+    
     return (
      
         <Router>
@@ -20,7 +25,7 @@ class App extends Component {
          
         <nav className="navbar navbar-expand navbar-dark bg-dark">
 
-        <a href="/pets" className="navbar-brand">PickMe</a>
+        <a href="/main" className="navbar-brand">PickMe</a>
             
         <div className="navbar-nav mr-auto">
               
@@ -37,6 +42,33 @@ class App extends Component {
               
 <li className="nav-item">
 <Link to={"/addUser"} className="nav-link">Add User</Link></li>
+        
+        {/* if there is no user. show the login button */}
+              
+      
+      
+      {!isLoading && !user && (
+                <button onClick={loginWithRedirect} className="navbar-item">
+                  Login
+                </button>
+              )}
+
+
+
+              {/* if there is a user. show user name and logout button */}
+              
+
+{!isLoading && user && (
+                <>
+                  <button className="navbar-item">{user.name}</button>
+                  <button
+                    onClick={() => logout({ returnTo: window.location.origin })}
+                    className="navbar-item"
+                  >
+                    Logout
+                  </button>
+                </>
+              )}
             
 </div>
 </nav>
@@ -59,6 +91,4 @@ class App extends Component {
         
     );
   }
-}
 
-export default App;
