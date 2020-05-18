@@ -11,6 +11,9 @@ import AddUser from "./components/add-user.component";
 import User from "./components/user.component";
 import UsersList from "./components/users-list.component";
 
+import ImageForm from "./components/image-form";
+
+
 import MainPage from "./components/main-page.component";
 import LoginPage from "./components/login-page.component";
 

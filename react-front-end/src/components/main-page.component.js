@@ -9,6 +9,9 @@ import PetsList from "./pets-list.component";
 import AddUser from "./add-user.component";
 import User from "./user.component";
 import UsersList from "./users-list.component";
+import ImageForm from "./image-form";
+
+  
 
 import { useAuth0 } from './auth0-context';
 
@@ -31,6 +34,10 @@ export default function MainPage() {
               
 <li className="nav-item">
 <Link to={"/pets"} className="nav-link">Pets</Link>
+</li>
+
+<li className="nav-item">
+<Link to={"/ImageForm"} className="nav-link">Upload</Link>
 </li>
               
 <li className="nav-item">
@@ -79,6 +86,8 @@ export default function MainPage() {
 <Route exact path={["/", "/pets"]} component={PetsList} />
 <Route exact path="/add" component={AddPet} />
 <Route path="/pets/:id" component={Pet} />
+<Route exact path="/ImageForm" component={ImageForm} />
+
         
 <Route exact path={["/", "/users"]} component={UsersList} />
 <Route exact path="/addUser" component={AddUser} />
