@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import ImageUploader from 'react-images-upload';
+import ImageUploader from './img-index';
+
+
+
 
 
 export default class ImageForm extends Component {
@@ -22,13 +25,8 @@ export default class ImageForm extends Component {
                 <h1 className="AppTitle">Yoz React Upload Page</h1>
             </header>
 
-            <ImageUploader
-            withIcon={true}
-            buttonText='Choose images'
-            onChange={this.onDrop}
-            imgExtension={['.jpg', '.gif', '.png', '.gif']}
-            maxFileSize={5242880}
-            />
+            <ImageUploader style={{ maxWidth: '500px', margin: "20px auto" }}
+                               withPreview={true} />
 
         </div>
 
