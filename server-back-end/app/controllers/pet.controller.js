@@ -16,7 +16,8 @@ exports.create = (req, res) => {
   const pet = {
     title: req.body.title,
     description: req.body.description,
-    published: req.body.published ? req.body.published : false
+    published: req.body.published ? req.body.published : false,
+    image: req.body.image
   };
 
   // Save Pet in the database

@@ -6,6 +6,7 @@ export default class Pet extends Component {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
+    this.onChangeImage = this.onChangeImage.bind(this);
     this.getPet = this.getPet.bind(this);
     this.updatePublished = this.updatePublished.bind(this);
     this.updatePet = this.updatePet.bind(this);
@@ -16,7 +17,8 @@ export default class Pet extends Component {
         id: null,
         title: "",
         description: "",
-        published: false
+        published: false,
+        image: ""
       },
       message: ""
     };
@@ -49,6 +51,17 @@ export default class Pet extends Component {
       }
     }));
   }
+    
+onChangeImage(e) {
+    const image = e.target.value;
+    
+    this.setState(prevState => ({
+      currentPet: {
+        ...prevState.currentPet,
+        image: image
+      }
+    }));
+  }
 
   getPet(id) {
     PetDataService.get(id)
@@ -63,13 +76,16 @@ export default class Pet extends Component {
       });
   }
 
-  updatePublished(status) {
+
+      updatePublished(status) {
     var data = {
       id: this.state.currentPet.id,
       title: this.state.currentPet.title,
       description: this.state.currentPet.description,
-      published: status
-    };
+      published: status,
+      image: this.state.currentPet.image
+    }; 
+  
 
     PetDataService.update(this.state.currentPet.id, data)
       .then(response => {
@@ -142,30 +158,21 @@ export default class Pet extends Component {
                   onChange={this.onChangeDescription}
                 />
               </div>
-
-              <div className="form-group">
-                <label>
-                  <strong>Status:</strong>
-                </label>
-                {currentPet.published ? "Published" : "Pending"}
+        
+            <div className="form-group">
+                <label htmlFor="image">Image</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="image"
+                  value={currentPet.image}
+                  onChange={this.onChangeImage}
+                />
               </div>
+
             </form>
 
-            {currentPet.published ? (
-              <button
-                className="badge badge-primary mr-2"
-                onClick={() => this.updatePublished(false)}
-              >
-                UnPublish
-              </button>
-            ) : (
-              <button
-                className="badge badge-primary mr-2"
-                onClick={() => this.updatePublished(true)}
-              >
-                Publish
-              </button>
-            )}
+
 
             <button
               className="badge badge-danger mr-2"

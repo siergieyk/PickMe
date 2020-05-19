@@ -110,7 +110,8 @@ export default class PetsList extends Component {
           </div>
         </div>
         <div className="col-md-6">
-          <h4>Pets List</h4>
+         
+        <h4>Pets List</h4>
 
           <ul className="list-group">
             {pets &&
@@ -127,36 +128,48 @@ export default class PetsList extends Component {
                 </li>
               ))}
           </ul>
-
-          <button
+            <button
             className="m-3 btn btn-sm btn-danger"
             onClick={this.removeAllPets}
-          >
-            Remove All
-          </button>
+          >Remove All</button>
+
+
+
         </div>
         <div className="col-md-6">
           {currentPet ? (
             <div>
+           
+           
               <h4>Pet</h4>
               <div>
+           <div>
                 <label>
-                  <strong>Title:</strong>
+                  <strong>Image:</strong>
+                </label>{" "}
+
+<div >                <img style={{width: '300px'}} src={currentPet.image} /> </div>
+              </div>
+           
+           
+           
+                <label>
+                  <strong>Name:</strong>
                 </label>{" "}
                 {currentPet.title}
               </div>
-              <div>
+              
+
+                <div>
                 <label>
                   <strong>Description:</strong>
                 </label>{" "}
                 {currentPet.description}
               </div>
-              <div>
-                <label>
-                  <strong>Status:</strong>
-                </label>{" "}
-                {currentPet.published ? "Published" : "Pending"}
-              </div>
+
+   
+              
+
 
               <Link
                 to={"/pets/" + currentPet.id}
@@ -165,6 +178,8 @@ export default class PetsList extends Component {
                 Edit
               </Link>
             </div>
+            
+            
           ) : (
             <div>
               <br />

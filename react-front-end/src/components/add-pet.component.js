@@ -6,6 +6,7 @@ export default class AddPet extends Component {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
+   this.onChangeImage = this.onChangeImage.bind(this);
     this.savePet = this.savePet.bind(this);
     this.newPet = this.newPet.bind(this);
 
@@ -14,8 +15,10 @@ export default class AddPet extends Component {
       title: "",
       description: "", 
       published: false,
+      
 
-      submitted: false
+      submitted: false,
+        image: "",
     };
   }
 
@@ -30,11 +33,18 @@ export default class AddPet extends Component {
       description: e.target.value
     });
   }
+    
+      onChangeImage(e) {
+    this.setState({
+      image: e.target.value
+    });
+  }
 
   savePet() {
     var data = {
       title: this.state.title,
-      description: this.state.description
+      description: this.state.description,
+      image: this.state.image
     };
 
     PetDataService.create(data)
@@ -44,8 +54,9 @@ export default class AddPet extends Component {
           title: response.data.title,
           description: response.data.description,
           published: response.data.published,
-
-          submitted: true
+    
+          submitted: true,
+         image: response.data.image
         });
         console.log(response.data);
       })
@@ -61,7 +72,8 @@ export default class AddPet extends Component {
       description: "",
       published: false,
 
-      submitted: false
+      submitted: false,
+      image: ""
     });
   }
 
@@ -100,6 +112,19 @@ export default class AddPet extends Component {
                 value={this.state.description}
                 onChange={this.onChangeDescription}
                 name="description"
+              />
+            </div>
+        
+                <div className="form-group">
+              <label htmlFor="image">Image</label>
+              <input
+                type="text"
+                className="form-control"
+                id="image"
+                required
+                value={this.state.image}
+                onChange={this.onChangeImage}
+                name="image"
               />
             </div>
 

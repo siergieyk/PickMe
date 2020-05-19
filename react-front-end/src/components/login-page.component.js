@@ -92,7 +92,7 @@ export default function LoginPage() {
         
         
             
-    <button className="navbar-item"><img style={{width:"30px", marginLeft:"200px"}} src={user.picture} alt="My Avatar" /> {user.name}</button>
+    <button className="navbar-item"><img style={{width:"30px", marginLeft:"100px"}} src={user.picture} alt="My Avatar" /> {user.name}</button>
     
 
     
