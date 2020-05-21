@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import UserDataService from "../services/user.service";
 
+
 export default class User extends Component {
   constructor(props) {
     super(props);
+    this.onChangeId = this.onChangeId.bind(this);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.getUser = this.getUser.bind(this);
@@ -13,7 +15,7 @@ export default class User extends Component {
 
     this.state = {
       currentUser: {
-        id: null,
+        id: "",
         title: "",
         description: "",
         published: false
@@ -24,6 +26,19 @@ export default class User extends Component {
 
   componentDidMount() {
     this.getUser(this.props.match.params.id);
+  }
+    
+    onChangeId(e) {
+    const id = e.target.value;
+
+    this.setState(function(prevState) {
+      return {
+        currentUser: {
+          ...prevState.currentUser,
+          id: id
+        }
+      };
+    });
   }
 
   onChangeTitle(e) {
@@ -117,12 +132,30 @@ export default class User extends Component {
     const { currentUser } = this.state;
 
     return (
+        
+        
+    
+        
+        
       <div>
         {currentUser ? (
           <div className="edit-form">
             <h4>User</h4>
             <form>
-              <div className="form-group">
+         
+            <div className="form-group">
+                <label htmlFor="id">ID</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="id"
+                  value={currentUser.id}
+                  onChange={this.onChangeId}
+                />
+              </div>
+              
+         
+         <div className="form-group">
                 <label htmlFor="title">Title</label>
                 <input
                   type="text"
@@ -132,6 +165,8 @@ export default class User extends Component {
                   onChange={this.onChangeTitle}
                 />
               </div>
+        
+        
               <div className="form-group">
                 <label htmlFor="description">Description</label>
                 <input
@@ -143,29 +178,9 @@ export default class User extends Component {
                 />
               </div>
 
-              <div className="form-group">
-                <label>
-                  <strong>Status:</strong>
-                </label>
-                {currentUser.published ? "Published" : "Pending"}
-              </div>
+
             </form>
 
-            {currentUser.published ? (
-              <button
-                className="badge badge-primary mr-2"
-                onClick={() => this.updatePublished(false)}
-              >
-                UnPublish
-              </button>
-            ) : (
-              <button
-                className="badge badge-primary mr-2"
-                onClick={() => this.updatePublished(true)}
-              >
-                Publish
-              </button>
-            )}
 
             <button
               className="badge badge-danger mr-2"

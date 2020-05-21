@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import UserDataService from "../services/user.service";
+import LoginPage from "./login-page.component";
 
 export default class AddUser extends Component {
   constructor(props) {
     super(props);
+    this.onChangeId = this.onChangeId.bind(this);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.saveUser = this.saveUser.bind(this);
     this.newUser = this.newUser.bind(this);
 
     this.state = {
-      id: null,
+      id: "",
       title: "",
       description: "", 
       published: false,
@@ -19,6 +21,13 @@ export default class AddUser extends Component {
     };
   }
 
+    
+onChangeId(e) {
+    this.setState({
+      id: e.target.value
+    });
+  }
+    
   onChangeTitle(e) {
     this.setState({
       title: e.target.value
@@ -33,6 +42,7 @@ export default class AddUser extends Component {
 
   saveUser() {
     var data = {
+      id: this.state.id,
       title: this.state.title,
       description: this.state.description
     };
@@ -56,7 +66,7 @@ export default class AddUser extends Component {
 
   newUser() {
     this.setState({
-      id: null,
+      id: "",
       title: "",
       description: "",
       published: false,
@@ -77,6 +87,22 @@ export default class AddUser extends Component {
           </div>
         ) : (
           <div>
+
+            <div className="form-group">
+              <label htmlFor="id">ID</label>
+              <input
+                type="text"
+                className="form-control"
+                id="id"
+                required
+                value={this.state.title}
+                onChange={this.onChangeId}
+                name="id"
+              />
+            </div>
+        
+        
+        
             <div className="form-group">
               <label htmlFor="title">Title</label>
               <input
@@ -112,3 +138,6 @@ export default class AddUser extends Component {
     );
   }
 }
+
+
+

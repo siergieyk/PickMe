@@ -1,7 +1,23 @@
 import React, { Component } from "react";
 import PetDataService from "../services/pet.service";
 
+import Select from 'react-select';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+const techCompanies = [
+  { label: "Apple", value: 1 },
+  { label: "Facebook", value: 2 },
+  { label: "Netflix", value: 3 },
+  { label: "Tesla", value: 4 },
+  { label: "Amazon", value: 5 },
+  { label: "Alphabet", value: 6 },
+];
+
 export default class AddPet extends Component {
+    
+    
+    
   constructor(props) {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
@@ -114,6 +130,12 @@ export default class AddPet extends Component {
                 name="description"
               />
             </div>
+        
+
+    
+ 
+        
+
         
                 <div className="form-group">
               <label htmlFor="image">Image</label>

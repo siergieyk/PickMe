@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import UserDataService from "../services/user.service";
 import { Link } from "react-router-dom";
 
+import AddUser from "./add-user.component";
+import User from "./user.component";
+
 export default class UsersList extends Component {
   constructor(props) {
     super(props);
@@ -86,8 +89,13 @@ export default class UsersList extends Component {
 
   render() {
     const { searchTitle, users, currentUser, currentIndex } = this.state;
+      
+      
 
     return (
+        
+
+        
       <div className="list row">
         <div className="col-md-8">
           <div className="input-group mb-3">
@@ -139,6 +147,15 @@ export default class UsersList extends Component {
           {currentUser ? (
             <div>
               <h4>User</h4>
+           
+                <div>
+                <label>
+                  <strong>Id:</strong>
+                </label>{" "}
+                {currentUser.id}
+              </div>
+           
+           
               <div>
                 <label>
                   <strong>Title:</strong>
@@ -151,12 +168,7 @@ export default class UsersList extends Component {
                 </label>{" "}
                 {currentUser.description}
               </div>
-              <div>
-                <label>
-                  <strong>Status:</strong>
-                </label>{" "}
-                {currentUser.published ? "Published" : "Pending"}
-              </div>
+
 
               <Link
                 to={"/users/" + currentUser.id}
