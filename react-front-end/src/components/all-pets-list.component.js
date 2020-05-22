@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PetDataService from "../services/pet.service";
 import { Link } from "react-router-dom";
+import { StickyContainer, Sticky } from 'react-sticky';
+
 
 export default class PetsList extends Component {
   constructor(props) {
@@ -109,28 +111,81 @@ export default class PetsList extends Component {
             </div>
           </div>
         </div>
-        <div className="col-md-6">
+        <div style={{marginBottom:'20px'}} className="col-md-6">
          
         <h4>Pets List</h4>
 
- 
+         
             {pets &&
               pets.map((pet, index) => (
-    <div>
-        
-                <p>{pet.title}</p>
-        
-                <img style={{width: '300px', align:'right'}} src={pet.image} />
-        </div>
-        
+                <div style={{marginBottom:'20px'}} 
+                  className={
+                    "list-group-item " +
+                    (index === currentIndex ? "active" : "")
+                  }
+                  onClick={() => this.setActivePet(pet, index)}
+                  key={index}
+                >
+                <img style={{width:'300px'}}src={pet.image} />
+              </div>
               ))}
-    
+      
 
 
 
         </div>
+        <div className="col-md-6">
+          {currentPet ? (
+            <div>
+           
+ 
+        
+              <h4>Pet</h4>
+              <div>
+           <div>
+                <label>
+                  <strong>Image:</strong>
+                </label>{" "}
 
+<div >                
+           
+           <img style={{width: '300px'}} src={currentPet.image} />
+               
+               
+               
+               </div>
+              </div>
+           
+           
+           
+                <label>
+                  <strong>Name:</strong>
+                </label>{" "}
+                {currentPet.title}
+              </div>
+              
+
+                <div>
+                <label>
+                  <strong>Description:</strong>
+                </label>{" "}
+                {currentPet.description}
+              </div>
+
+   </div>
+              
+
+            
+            
+          ) : (
+            <div>
+              <br />
+              <p>Please click on a Pet...</p>
+            </div>
+          )}
+        </div>
       </div>
+
     );
   }
 }
