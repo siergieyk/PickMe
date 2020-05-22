@@ -23,6 +23,9 @@ import PetProfile from './pet-add-list.component';
 
 import AllPetsList from "./all-pets-list.component";
 
+import About from "./about.page";
+import Contact from "./contact.page"
+
 
 export default function LoginPage() {
 
@@ -42,7 +45,7 @@ export default function LoginPage() {
         <div className="navbar-nav mr-auto">
               
 <li className="nav-item">
-<Link to={"/"} className="nav-link">About</Link>
+<Link to={"/about"} className="nav-link">About</Link>
 </li>
 
 <li className="nav-item">
@@ -50,7 +53,7 @@ export default function LoginPage() {
 </li>
               
 <li className="nav-item">
-<Link to={"/"} className="nav-link">Contact</Link></li>
+<Link to={"/contact"} className="nav-link">Contact</Link></li>
         
 <li className="nav-item">
 <Link to={"/all-pets-list"} className="nav-link">All Pets</Link>
@@ -123,6 +126,10 @@ export default function LoginPage() {
               
 
 <Route exact path="/petprofile" component={PetProfile} />
+
+    <Route exact path="/about" component={About} />
+    <Route exact path="/contact" component={Contact} />
+    
     
 <Route exact path="/all-pets-list" component={AllPetsList} />
 
