@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import UserDataService from "../services/user.service";
 import LoginPage from "./login-page.component";
 
+
+
 export default class AddUser extends Component {
   constructor(props) {
     super(props);
@@ -95,7 +97,7 @@ onChangeId(e) {
                 className="form-control"
                 id="id"
                 required
-                value={this.state.title}
+                value={this.state.id}
                 onChange={this.onChangeId}
                 name="id"
               />
@@ -137,7 +139,12 @@ onChangeId(e) {
       </div>
     );
   }
+  
+
+  
 }
+
+
 
 
 

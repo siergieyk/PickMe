@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import AddUser from "./add-user.component";
 import User from "./user.component";
 
+
+
 export default class UsersList extends Component {
   constructor(props) {
     super(props);
@@ -86,11 +88,13 @@ export default class UsersList extends Component {
         console.log(e);
       });
   }
+    
+    
 
   render() {
     const { searchTitle, users, currentUser, currentIndex } = this.state;
       
-      
+   
 
     return (
         

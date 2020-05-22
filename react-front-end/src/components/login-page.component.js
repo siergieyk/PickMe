@@ -15,6 +15,13 @@ import ImageForm from "./image-form";
 import { useAuth0 } from './auth0-context';
 
 import './button.css';
+import '../App.css';
+
+import UserProfile from './user-add-list.component';
+
+import PetProfile from './pet-add-list.component';
+
+import AllPetsList from "./all-pets-list.component";
 
 
 export default function LoginPage() {
@@ -26,7 +33,7 @@ export default function LoginPage() {
         
      
         <Router>
-        <div>
+        <div className="container">
          
         <nav className="navbar navbar-expand navbar-dark bg-dark">
 
@@ -46,7 +53,7 @@ export default function LoginPage() {
 <Link to={"/"} className="nav-link">Contact</Link></li>
         
 <li className="nav-item">
-<Link to={"/"} className="nav-link">All Pets</Link>
+<Link to={"/all-pets-list"} className="nav-link">All Pets</Link>
 </li>
         
               {/* if there is no user. show the login button */}
@@ -81,14 +88,13 @@ export default function LoginPage() {
 </li>
         
         <li className="nav-item">
-<Link to={"/add"} className="nav-link">Add Pet</Link></li>
+<Link to={"/petprofile"} className="nav-link">Pet Profiles</Link></li>
+        
         
 <li className="nav-item">
-<Link to={"/users"} className="nav-link">Users</Link>
-</li>
-              
-<li className="nav-item">
-<Link to={"/addUser"} className="nav-link">Add User</Link></li>
+<Link to={"/userprofile"} className="nav-link">User Profile</Link></li>
+
+
         
         
             
@@ -115,15 +121,17 @@ export default function LoginPage() {
           <div className="container mt-3">
             <Switch>
               
-<Route exact path= "/pets" component={PetsList} />
-<Route exact path="/add" component={AddPet} />
+
+<Route exact path="/petprofile" component={PetProfile} />
+    
+<Route exact path="/all-pets-list" component={AllPetsList} />
+
 <Route path="/pets/:id" component={Pet} />
 <Route exact path="/ImageForm" component={ImageForm} />
 
-        
-<Route exact path="/users"component={UsersList} />
-<Route exact path="/addUser" component={AddUser} />
+    
 <Route path="/users/:id" component={User} />
+<Route path="/userprofile" component={UserProfile} />
 
 
         </Switch>
@@ -133,4 +141,3 @@ export default function LoginPage() {
         
     );
   }
-

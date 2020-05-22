@@ -20,9 +20,13 @@ import LoginPage from "./components/login-page.component";
 import { useAuth0 } from './components/auth0-context';
 
 
+
+
 class App extends Component {
   render() {
     return (
+        
+
      
         <Router>
 
@@ -32,6 +36,8 @@ class App extends Component {
 
 
         <Route exact path="/" component={LoginPage} />
+        
+        
         <Route exact path="/main" component={MainPage} />
         
 
@@ -40,7 +46,8 @@ class App extends Component {
         </Switch>
           </div>
       </Router>
-        
+
+      
     );
   }
 }

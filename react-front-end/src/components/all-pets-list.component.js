@@ -113,79 +113,23 @@ export default class PetsList extends Component {
          
         <h4>Pets List</h4>
 
-          <ul className="list-group">
+ 
             {pets &&
               pets.map((pet, index) => (
-                <li
-                  className={
-                    "list-group-item " +
-                    (index === currentIndex ? "active" : "")
-                  }
-                  onClick={() => this.setActivePet(pet, index)}
-                  key={index}
-                >
-                  {pet.title}
-                </li>
-              ))}
-          </ul>
-            <button
-            className="m-3 btn btn-sm btn-danger"
-            onClick={this.removeAllPets}
-          >Remove All</button>
-
-
-
-        </div>
-        <div className="col-md-6">
-          {currentPet ? (
-            <div>
-           
-           
+    <div>
         
-              <h4>Pet</h4>
-              <div>
-           <div>
-                <label>
-                  <strong>Image:</strong>
-                </label>{" "}
-
-<div >                <img style={{width: '300px'}} src={currentPet.image} /> </div>
-              </div>
-           
-           
-           
-                <label>
-                  <strong>Name:</strong>
-                </label>{" "}
-                {currentPet.title}
-              </div>
-              
-
-                <div>
-                <label>
-                  <strong>Description:</strong>
-                </label>{" "}
-                {currentPet.description}
-              </div>
-
-   
-              
-
-
-              <Link
-                to={"/pets/" + currentPet.id}
-                className="badge badge-warning"
-              >Edit</Link>
-            </div>
-            
-            
-          ) : (
-            <div>
-              <br />
-              <p>Please click on a Pet...</p>
-            </div>
-          )}
+                <p>{pet.title}</p>
+        
+                <img style={{width: '300px', align:'right'}} src={pet.image} />
         </div>
+        
+              ))}
+    
+
+
+
+        </div>
+
       </div>
     );
   }
