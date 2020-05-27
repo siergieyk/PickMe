@@ -11,6 +11,7 @@ import User from "./user.component";
 import UsersList from "./users-list.component";
 
 import ImageForm from "./image-form";
+import Pickme from "./pickme"
 
 import { useAuth0 } from './auth0-context';
 
@@ -18,11 +19,8 @@ import './button.css';
 import '../App.css';
 
 import UserProfile from './user-add-list.component';
-
 import PetProfile from './pet-add-list.component';
-
 import AllPetsList from "./all-pets-list.component";
-
 import About from "./about.page";
 import Contact from "./contact.page"
 
@@ -32,32 +30,32 @@ export default function LoginPage() {
       const { isLoading, user, loginWithRedirect, logout } = useAuth0();
     
     return (
-        
-        
-     
-        <Router>
-        <div className="container">
-         
+    
+    <Router>
+      <div className="container">
         <nav className="navbar navbar-expand navbar-dark bg-dark">
+          <a href="/main" className="navbar-brand">PickMe</a>
 
-        <a href="/" className="navbar-brand">PickMe</a>
-            
-        <div className="navbar-nav mr-auto">
-              
-<li className="nav-item">
-<Link to={"/about"} className="nav-link">About</Link>
-</li>
+          <div className="navbar-nav mr-auto">
 
-<li className="nav-item">
-<Link to={"/ImageForm"} className="nav-link">Upload</Link>
-</li>
-              
-<li className="nav-item">
-<Link to={"/contact"} className="nav-link">Contact</Link></li>
-        
-<li className="nav-item">
-<Link to={"/all-pets-list"} className="nav-link">All Pets</Link>
-</li>
+          <li className="nav-item">
+            <Link to={"/Pickme"} className="nav-link">PickMe</Link>
+            </li>
+
+            <li className="nav-item">
+            <Link to={"/about"} className="nav-link">About</Link>
+            </li>
+
+            <li className="nav-item">
+            <Link to={"/ImageForm"} className="nav-link">Upload</Link>
+            </li>
+                          
+            <li className="nav-item">
+            <Link to={"/contact"} className="nav-link">Contact</Link></li>
+                    
+            <li className="nav-item">
+            <Link to={"/all-pets-list"} className="nav-link">All Pets</Link>
+            </li>
         
               {/* if there is no user. show the login button */}
 
@@ -82,12 +80,9 @@ export default function LoginPage() {
                 <>
                   
 
-<li className="nav-item">
-<Link to={"/pets"} className="nav-link">Pets</Link>
-</li>
 
 <li className="nav-item">
-<Link to={"/ImageForm"} className="nav-link">Upload</Link>
+<Link to={"/pets"} className="nav-link">Pets</Link>
 </li>
         
         <li className="nav-item">
@@ -101,11 +96,7 @@ export default function LoginPage() {
         
         
             
-    <button className="navbar-item"><img style={{width:"30px", marginLeft:"100px"}} src={user.picture} alt="My Avatar" /> {user.name}</button>
-    
-
-    
-    
+    <button className="navbar-item"><img style={{width:"30px"}} src={user.picture} alt="My Avatar" /> {user.name}</button>
     
                   <button
                     onClick={() => logout({ returnTo: window.location.origin })}
@@ -123,25 +114,16 @@ export default function LoginPage() {
 
           <div className="container mt-3">
             <Switch>
-              
-
-<Route exact path="/petprofile" component={PetProfile} />
-
-    <Route exact path="/about" component={About} />
-    <Route exact path="/contact" component={Contact} />
-    
-    
-<Route exact path="/all-pets-list" component={AllPetsList} />
-
-<Route path="/pets/:id" component={Pet} />
-<Route exact path="/ImageForm" component={ImageForm} />
-
-    
-<Route path="/users/:id" component={User} />
-<Route path="/userprofile" component={UserProfile} />
-
-
-        </Switch>
+              <Route exact path="/main" component={Pickme} />
+              <Route exact path="/petprofile" component={PetProfile} />
+              <Route exact path="/petprofile" component={PetProfile} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/contact" component={Contact} />
+              <Route path="/pets/:id" component={Pet} />
+              <Route exact path="/ImageForm" component={ImageForm} />
+              <Route path="/users/:id" component={User} />
+              <Route path="/userprofile" component={UserProfile} />
+            </Switch>
           </div>
         </div>
       </Router>

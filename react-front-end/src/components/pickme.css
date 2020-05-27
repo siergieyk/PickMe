@@ -1,0 +1,25 @@
+.row {
+    padding: 30px;
+    margin-left: -30px;
+    margin-right: -30px;
+    margin-bottom: 90px;
+  }
+  
+  .jumbotron {
+    margin-left: auot;
+    margin-right: auto;
+    font-family: 'sans-serif-light','Gill Sans', 'Gill Sans MT';
+    background-color: rgba(255,255,255,0.4); 
+    color: black;
+    font-size: 20px;
+  }
+
+.container{
+    padding: 5px;
+}
+
+
+.petimg {
+  height: 300px;
+  width: 334.66px;
+}
