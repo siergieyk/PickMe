@@ -115,7 +115,7 @@ export default function LoginPage() {
           <div className="container mt-3">
             <Switch>
               <Route exact path="/main" component={Pickme} />
-              <Route exact path="/petprofile" component={PetProfile} />
+              <Route exact path="/all-pets-list" component={AllPetsList} />
               <Route exact path="/petprofile" component={PetProfile} />
               <Route exact path="/about" component={About} />
               <Route exact path="/contact" component={Contact} />
