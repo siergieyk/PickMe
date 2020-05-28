@@ -10,7 +10,7 @@ import AddUser from "./add-user.component";
 import User from "./user.component";
 import UsersList from "./users-list.component";
 import ImageForm from "./image-form";
-
+import Pickme from "./pickme";
   
 
 import { useAuth0 } from './auth0-context';
@@ -27,14 +27,17 @@ export default function MainPage() {
         <div>
          
         <nav className="navbar navbar-expand navbar-dark bg-dark">
-
-        <a href="/main" className="navbar-brand">PickMe</a>
-            
+          <a href="/main" className="navbar-brand">PickMe</a>
         <div className="navbar-nav mr-auto">
               
+        <li className="nav-item">
+<Link to={"/Pickme"} className="nav-link">PickMe</Link>
+</li>
+
 <li className="nav-item">
 <Link to={"/pets"} className="nav-link">Pets</Link>
 </li>
+
 
 <li className="nav-item">
 <Link to={"/ImageForm"} className="nav-link">Upload</Link>
@@ -82,8 +85,9 @@ export default function MainPage() {
 
           <div className="container mt-3">
             <Switch>
-
-<Route exact path={["/", "/pets"]} component={PetsList} />
+{/*{ <Route exact path="/main" component={Pickme} />} */ }
+<Route exact path="/main" component={Pickme} />
+<Route exact path={["/", "/pets"]} component={PetsList} /><Route exact path={["/", "/pets"]} component={PetsList} />
 <Route exact path="/add" component={AddPet} />
 <Route path="/pets/:id" component={Pet} />
 <Route exact path="/ImageForm" component={ImageForm} />
@@ -94,8 +98,10 @@ export default function MainPage() {
 <Route path="/users/:id" component={User} />
 
         </Switch>
-          </div>
+          </div>     
         </div>
+
+
       </Router>
         
     );
