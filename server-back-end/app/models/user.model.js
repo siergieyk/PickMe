@@ -13,7 +13,40 @@ module.exports = (sequelize, Sequelize) => {
     },
     published: {
       type: Sequelize.BOOLEAN
-    }
+    },
+      
+          home: {
+      type: Sequelize.BOOLEAN
+    },
+      
+          backyard: {
+      type: Sequelize.BOOLEAN
+    },
+          work: {
+      type: Sequelize.BOOLEAN
+    },
+          time: {
+      type: Sequelize.BOOLEAN
+    },
+          cats: {
+      type: Sequelize.BOOLEAN
+    },
+      
+          dogs: {
+      type: Sequelize.BOOLEAN
+    },
+      
+          children: {
+      type: Sequelize.BOOLEAN
+    },
+      
+          foster: {
+      type: Sequelize.BOOLEAN
+    },
+      
+          adoption: {
+      type: Sequelize.BOOLEAN
+    },
   });
 
   return User;

@@ -17,7 +17,21 @@ exports.create = (req, res) => {
     title: req.body.title,
     description: req.body.description,
     published: req.body.published ? req.body.published : false,
-    image: req.body.image
+    image: req.body.image,
+    specie: req.body.specie,
+      breed: req.body.breed,
+      age: req.body.age,
+      weight: req.body.weight,
+      coat: req.body.coat,
+      energy: req.body.energy,
+      cats: req.body.cats,
+      dogs: req.body.dogs,
+      children: req.body.children,
+      other: req.body.other,
+      foster: req.body.foster,
+      adoption: req.body.adoption,
+      phone: req.body.phone,
+      email: req.body.email
   };
 
   // Save Pet in the database

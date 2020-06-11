@@ -17,6 +17,19 @@ exports.create = (req, res) => {
     id: req.body.id,
     title: req.body.title,
     description: req.body.description,
+    home: req.body.home,
+      backyard: req.body.backyard,
+      work: req.body.work,
+      time: req.body.time,
+      cats: req.body.cats,
+      dogs: req.body.dogs,
+      children: req.body.children,
+      foster: req.body.foster,
+      adoption: req.body.adoption,
+      
+      
+      
+      
     published: req.body.published ? req.body.published : false
   };
 

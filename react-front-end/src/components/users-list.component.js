@@ -121,8 +121,8 @@ export default class UsersList extends Component {
             </div>
           </div>
         </div>
-        <div className="col-md-6">
-          <h4>Users List</h4>
+        <div>
+          <h4>User</h4>
 
           <ul className="list-group">
             {users &&
@@ -147,7 +147,8 @@ export default class UsersList extends Component {
             Remove All
           </button>
         </div>
-        <div className="col-md-6">
+        <div style={{padding:'20px',  borderRadius:'10px', background:"#fff",
+  border: "solid 2px #000", backgroundColor:"rgba(255,255,255,0.4)", borderColor: "grey", width:'auto'}} className="col-md-6">
           {currentUser ? (
             <div>
               <h4>User</h4>
@@ -166,13 +167,72 @@ export default class UsersList extends Component {
                 </label>{" "}
                 {currentUser.title}
               </div>
-              <div>
+              
+
+            <div>
                 <label>
-                  <strong>Description:</strong>
+                  <strong>Home:</strong>
                 </label>{" "}
-                {currentUser.description}
+                {currentUser.home}
               </div>
 
+            <div>
+                <label>
+                  <strong>Backyard:</strong>
+                </label>{" "}
+                {currentUser.backyard}
+              </div>
+
+            <div>
+                <label>
+                  <strong>Work:</strong>
+                </label>{" "}
+                {currentUser.work}
+              </div>
+
+            <div>
+                <label>
+                  <strong>How much time:</strong>
+                </label>{" "}
+                {currentUser.time}
+              </div>
+
+            <div>
+                <label>
+                  <strong>Cats:</strong>
+                </label>{" "}
+                {currentUser.cats}
+              </div>
+
+            <div>
+                <label>
+                  <strong>Dogs:</strong>
+                </label>{" "}
+                {currentUser.dogs}
+              </div>
+
+            <div>
+                <label>
+                  <strong>Children:</strong>
+                </label>{" "}
+                {currentUser.children}
+              </div>
+
+            <div>
+                <label>
+                  <strong>Foster:</strong>
+                </label>{" "}
+                {currentUser.foster}
+              </div>
+
+            <div>
+                <label>
+                  <strong>Adoption:</strong>
+                </label>{" "}
+                {currentUser.adoption}
+              </div>
+
+ 
 
               <Link
                 to={"/users/" + currentUser.id}

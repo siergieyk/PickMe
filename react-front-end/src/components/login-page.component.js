@@ -22,7 +22,8 @@ import UserProfile from './user-add-list.component';
 import PetProfile from './pet-add-list.component';
 import AllPetsList from "./all-pets-list.component";
 import About from "./about.page";
-import Contact from "./contact.page"
+import Contact from "./contact.page";
+
 
 
 export default function LoginPage() {
@@ -34,13 +35,11 @@ export default function LoginPage() {
     <Router>
       <div className="container">
         <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <a href="/main" className="navbar-brand">PickMe</a>
+          <a href="/" className="navbar-brand">PickMe</a>
 
           <div className="navbar-nav mr-auto">
 
-          <li className="nav-item">
-            <Link to={"/Pickme"} className="nav-link">PickMe</Link>
-            </li>
+
 
             <li className="nav-item">
             <Link to={"/about"} className="nav-link">About</Link>
@@ -58,13 +57,13 @@ export default function LoginPage() {
             </li>
         
               {/* if there is no user. show the login button */}
-
-        
               {!isLoading && !user && (
                 <button onClick={loginWithRedirect} className="navbar-item">
                   Login
                 </button>
-              )}
+              )} 
+        
+  
 
 
 
@@ -96,7 +95,7 @@ export default function LoginPage() {
         
         
             
-    <button className="navbar-item"><img style={{width:"30px"}} src={user.picture} alt="My Avatar" /> {user.name}</button>
+    <button className="navbar-item"><img style={{width:"30px", borderRadius:30/2}} src={user.picture} alt="My Avatar" /> {user.name}</button>
     
                   <button
                     onClick={() => logout({ returnTo: window.location.origin })}
@@ -114,7 +113,7 @@ export default function LoginPage() {
 
           <div className="container mt-3">
             <Switch>
-              <Route exact path="/main" component={Pickme} />
+              <Route exact path="/" component={Pickme} />
               <Route exact path="/all-pets-list" component={AllPetsList} />
               <Route exact path="/petprofile" component={PetProfile} />
               <Route exact path="/about" component={About} />

@@ -138,18 +138,19 @@ export default class PetsList extends Component {
         </div>
         <div className="col-md-6">
           {currentPet ? (
-            <div>
+            <div style={{padding:'20px',  borderRadius:'10px', background:"#fff",
+  border: "solid 2px #000", backgroundColor:"rgba(255,255,255,0.4)", borderColor: "grey", width:'350px'}}>
            
            
         
               <h4>Pet</h4>
-              <div>
+              <div >
            <div>
                 <label>
                   <strong>Image:</strong>
                 </label>{" "}
 
-<div >                <img style={{width: '300px'}} src={currentPet.image} /> </div>
+<div  >                <img style={{width: '300px'}} src={currentPet.image} /> </div>
               </div>
            
            
@@ -163,20 +164,128 @@ export default class PetsList extends Component {
 
                 <div>
                 <label>
-                  <strong>Description:</strong>
+                  <strong>Descriptiooon:</strong>
                 </label>{" "}
                 {currentPet.description}
               </div>
 
+                <div>
+                <label>
+                  <strong>Specie:</strong>
+                </label>{" "}
+                {currentPet.specie}
+              </div>
+
+
+                <div>
+                <label>
+                  <strong>Breed:</strong>
+                </label>{" "}
+                {currentPet.breed}
+              </div>
+
+                <div>
+                <label>
+                  <strong>Age:</strong>
+                </label>{" "}
+                {currentPet.age}years
+              </div>
+
+
+                <div>
+                <label>
+                  <strong>Weight:</strong>
+                </label>{" "}
+                {currentPet.weight}lb
+              </div>
+
+
+                <div>
+                <label>
+                  <strong>Coat:</strong>
+                </label>{" "}
+                {currentPet.coat}
+              </div>
+
+
+                <div>
+                <label>
+                  <strong>Energy Level:</strong>
+                </label>{" "}
+                {currentPet.energy}
+              </div>
    
+
+                <div>
+                <label>
+                  <strong>Are they good with Cats:</strong>
+                </label>{" "}
+                {currentPet.cats}
+              </div>
+
+
+                <div>
+                <label>
+                  <strong>Are they good with Dogs:</strong>
+                </label>{" "}
+                {currentPet.dogs}
+              </div>
               
 
+                <div>
+                <label>
+                  <strong>Are they good with Children:</strong>
+                </label>{" "}
+                {currentPet.children}
+              </div>
+
+
+                <div>
+                <label>
+                  <strong>Are they doog with other people:</strong>
+                </label>{" "}
+                {currentPet.other}
+              </div>
+
+
+                <div>
+                <label>
+                  <strong>Are they looking for a foster home? :</strong>
+                </label>{" "}
+                {currentPet.foster}
+              </div>
+
+                  
+                <div>
+                <label>
+                  <strong>Are they looking to be adopted:</strong>
+                </label>{" "}
+                {currentPet.adoption}
+              </div>
+
+
+                <div>
+                <label>
+                  <strong>Phone:</strong>
+                </label>{" "}
+                {currentPet.phone}
+              </div>
+
+
+                <div>
+                <label>
+                  <strong>Email:</strong>
+                </label>{" "}
+                {currentPet.email}
+              </div>
 
               <Link
                 to={"/pets/" + currentPet.id}
                 className="badge badge-warning"
               >Edit</Link>
             </div>
+
+
             
             
           ) : (

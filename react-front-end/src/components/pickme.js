@@ -40,7 +40,7 @@ class Pickme extends Component {
   
                   <Col xs={6} md={4}>
                   <Card>
-                    <Image className="petimg" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" rounded />
+                <Image style={{ height:'250px', display:'flex', justifyContent:'center', alignItems:'center', overflow:'hidden'}} className="petimg" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg" rounded />
                     <Card.Body>
                         <PopupContainer2/>
                     </Card.Body>
@@ -49,7 +49,7 @@ class Pickme extends Component {
 
                   <Col xs={6} md={4}>
                   <Card>
-                    <Image className="petimg" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg" rounded />
+                    <Image style={{ height:'250px', display:'flex', justifyContent:'center', alignItems:'center', overflow:'hidden'}} className="petimg" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg" rounded />
                     <Card.Body>
                         <PopupContainer3/>
                     </Card.Body>
@@ -58,7 +58,7 @@ class Pickme extends Component {
 
                   <Col xs={6} md={4}>
                   <Card>
-                    <Image className="petimg" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/smartest-dog-breeds-1553287693.jpg" rounded />
+                    <Image style={{ height:'250px', display:'flex', justifyContent:'center', alignItems:'center', overflow:'hidden'}} className="petimg" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/smartest-dog-breeds-1553287693.jpg" rounded />
                     <Card.Body>
                         <PopupContainer/>
                     </Card.Body>

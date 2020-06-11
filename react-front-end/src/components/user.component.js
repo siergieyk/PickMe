@@ -8,6 +8,20 @@ export default class User extends Component {
     this.onChangeId = this.onChangeId.bind(this);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
+          
+      this.onChangeHome = this.onChangeHome.bind(this);
+      this.onChangeBackyard = this.onChangeBackyard.bind(this);
+      this.onChangeWork = this.onChangeWork.bind(this);
+      this.onChangeTime = this.onChangeTime.bind(this);
+      this.onChangeCats = this.onChangeCats.bind(this);
+      this.onChangeDogs = this.onChangeDogs.bind(this);
+      this.onChangeChildren = this.onChangeChildren.bind(this);
+      this.onChangeFoster = this.onChangeFoster.bind(this);
+      this.onChangeAdoption = this.onChangeAdoption.bind(this);
+      
+      
+    
+      
     this.getUser = this.getUser.bind(this);
     this.updatePublished = this.updatePublished.bind(this);
     this.updateUser = this.updateUser.bind(this);
@@ -18,7 +32,18 @@ export default class User extends Component {
         id: "",
         title: "",
         description: "",
-        published: false
+              published: false,
+
+      submitted: false,
+        home: "", 
+        backyard: "", 
+        work: "", 
+        time: "", 
+        cats: "", 
+        dogs: "", 
+        children: "", 
+        foster: "", 
+        adoption: ""
       },
       message: ""
     };
@@ -65,6 +90,110 @@ export default class User extends Component {
     }));
   }
 
+    
+      onChangeHome(e) {
+    const home = e.target.value;
+    
+    this.setState(prevState => ({
+      currentUser: {
+        ...prevState.currentUser,
+        home: home
+      }
+    }));
+  }
+    
+      onChangeBackyard(e) {
+    const backyard = e.target.value;
+    
+    this.setState(prevState => ({
+      currentUser: {
+        ...prevState.currentUser,
+        backyard: backyard
+      }
+    }));
+  }
+    
+      onChangeWork(e) {
+    const work = e.target.value;
+    
+    this.setState(prevState => ({
+      currentUser: {
+        ...prevState.currentUser,
+        work: work
+      }
+    }));
+  }
+    
+      onChangeTime(e) {
+    const time = e.target.value;
+    
+    this.setState(prevState => ({
+      currentUser: {
+        ...prevState.currentUser,
+        time: time
+      }
+    }));
+  }
+    
+      onChangeCats(e) {
+    const cats = e.target.value;
+    
+    this.setState(prevState => ({
+      currentUser: {
+        ...prevState.currentUser,
+        cats: cats
+      }
+    }));
+  }
+    
+      onChangeDogs(e) {
+    const dogs = e.target.value;
+    
+    this.setState(prevState => ({
+      currentUser: {
+        ...prevState.currentUser,
+        dogs: dogs
+      }
+    }));
+  }
+    
+      onChangeChildren(e) {
+    const children = e.target.value;
+    
+    this.setState(prevState => ({
+      currentUser: {
+        ...prevState.currentUser,
+        children: children
+      }
+    }));
+  }
+    
+      onChangeFoster(e) {
+    const foster = e.target.value;
+    
+    this.setState(prevState => ({
+      currentUser: {
+        ...prevState.currentUser,
+        foster: foster
+      }
+    }));
+  }
+    
+      onChangeAdoption(e) {
+    const adoption = e.target.value;
+    
+    this.setState(prevState => ({
+      currentUser: {
+        ...prevState.currentUser,
+        adoption: adoption
+      }
+    }));
+  }
+    
+
+    
+    
+    
   getUser(id) {
     UserDataService.get(id)
       .then(response => {
@@ -83,7 +212,17 @@ export default class User extends Component {
       id: this.state.currentUser.id,
       title: this.state.currentUser.title,
       description: this.state.currentUser.description,
-      published: status
+      published: status,
+        
+        home: this.state.currentUser.home,
+        backyard: this.state.currentUser.backyard,
+        work: this.state.currentUser.work,
+        time: this.state.currentUser.time,
+        cats: this.state.currentUser.cats,
+        dogs: this.state.currentUser.dogs,
+        children: this.state.currentUser.children,
+        foster: this.state.currentUser.foster,
+        adoption: this.state.currentUser.adoption
     };
 
     UserDataService.update(this.state.currentUser.id, data)
@@ -139,7 +278,8 @@ export default class User extends Component {
         
       <div>
         {currentUser ? (
-          <div className="edit-form">
+          <div style={{padding:'20px',  borderRadius:'10px', background:"#fff",
+  border: "solid 2px #000", backgroundColor:"rgba(255,255,255,0.4)", borderColor: "grey", width:'auto'}} className="edit-form">
             <h4>User</h4>
             <form>
          
@@ -156,7 +296,7 @@ export default class User extends Component {
               
          
          <div className="form-group">
-                <label htmlFor="title">Title</label>
+                <label htmlFor="title">Name</label>
                 <input
                   type="text"
                   className="form-control"
@@ -167,16 +307,129 @@ export default class User extends Component {
               </div>
         
         
-              <div className="form-group">
-                <label htmlFor="description">Description</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="description"
-                  value={currentUser.description}
-                  onChange={this.onChangeDescription}
-                />
-              </div>
+             <div className="form-group">
+              <form onSubmit={this.handleSubmit}>
+        <label >
+          Where do you live?:
+          <select style={{width:'250px'}}className="form-control" value={currentUser.home} onChange={this.onChangeHome}>
+            <option value="Pick One">Pick One</option>
+            <option value="studio">Studio</option>
+            <option value="1 bedroom">1 Bedroom Apt</option>
+            <option value="2 bedroom">2 Bedroom Apt</option>
+        <option value="house">House</option>
+          </select>
+        </label>
+      </form>
+        </div>
+        
+                        <div className="form-group">
+              <form onSubmit={this.handleSubmit}>
+        <label >
+          Do you have a backyard?:
+          <select style={{width:'250px'}}className="form-control" value={currentUser.backyard} onChange={this.onChangeBackyard}>
+            <option value="Pick One">Pick One</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+      </form>
+        </div>
+        
+                        <div className="form-group">
+              <form onSubmit={this.handleSubmit}>
+        <label >
+          How many hours per week do you work?:
+          <select style={{width:'250px'}}className="form-control" value={this.state.work} onChange={this.onChangeWork}>
+            <option value="Pick One">Pick One</option>
+            <option value="30">up to 30 hours</option>
+            <option value="40-50">Full time 40 - 50 hours</option>
+            <option value="50+">More than 50 hours</option>
+          </select>
+        </label>
+      </form>
+        </div>
+        
+                        <div className="form-group">
+              <form onSubmit={this.handleSubmit}>
+        <label >
+          How many hours per day can you spend with your pet?:
+          <select style={{width:'250px'}}className="form-control" value={this.state.time} onChange={this.onChangeTime}>
+        <option value="Pick One">Pick One</option>
+            <option value="4">2 to 4 hours</option>
+            <option value="6">4 to 6 hours</option>
+            <option value="8">6 to 8 hours</option>
+            <option value="10">8 to 10 hours</option>
+          </select>
+        </label>
+      </form>
+        </div>
+        
+                        <div className="form-group">
+              <form onSubmit={this.handleSubmit}>
+        <label >
+          Do you have cats?:
+          <select style={{width:'250px'}}className="form-control" value={this.state.cats} onChange={this.onChangeCats}>
+            <option value="Pick One">Pick One</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+      </form>
+        </div>
+        
+                        <div className="form-group">
+              <form onSubmit={this.handleSubmit}>
+        <label >
+          Do you have dogs?:
+          <select style={{width:'250px'}}className="form-control" value={this.state.dogs} onChange={this.onChangeDogs}>
+            <option value="Pick One">Pick One</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+      </form>
+        </div>
+        
+                        <div className="form-group">
+              <form onSubmit={this.handleSubmit}>
+        <label >
+          Do you have small children?:
+          <select style={{width:'250px'}}className="form-control" value={this.state.children} onChange={this.onChangeChildren}>
+            <option value="Pick One">Pick One</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+      </form>
+        </div>
+        
+                        <div className="form-group">
+              <form onSubmit={this.handleSubmit}>
+        <label >
+          Are you looking to foster a pet?:
+          <select style={{width:'250px'}}className="form-control" value={this.state.foster} onChange={this.onChangeFoster}>
+            <option value="Pick One">Pick One</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="maybe">Maybe</option>
+          </select>
+        </label>
+      </form>
+        </div>
+        
+                        <div className="form-group">
+              <form onSubmit={this.handleSubmit}>
+        <label >
+          Are you looking to adopt a pet?:
+          <select style={{width:'250px'}}className="form-control" value={this.state.adoption} onChange={this.onChangeAdoption}>
+            <option value="Pick One">Pick One</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="maybe">Maybe</option>
+          </select>
+        </label>
+      </form>
+        </div>
 
 
             </form>
