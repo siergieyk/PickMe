@@ -30,8 +30,8 @@ PRIMARY KEY (`id`)) ENGINE=InnoDB;
 
 
 INSERT INTO `pets` (`id`,`title`,`description`,`published`,`createdAt`,`updatedAt`, `image`, `specie`,`breed`, `age`,`weight`,`coat`,`energy`,`cats`,`dogs`,`children`,`other`,`foster`,`adoption`,`phone`,`email`)VALUES
-(DEFAULT, 'Spot', 'siergieyk@gmail.com', 0, NULL, NULL, 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg', 'Dog', 'Labrador','2','5','Yellow','1-2 hours','Yes','Yes','No','Yes','Yes','Yes','206-206-999','shelter@gmail.com' ),
-(DEFAULT, 'Mittens', 'siergieyk@gmail.com', 0, NULL, NULL, 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg', 'Cat', 'Sphinx', '2','10','White','1-2 hours','Yes','Yes','No','Yes','Yes','Yes','206-206-999','shelter@gmail.com' );
+(DEFAULT, 'Spot', 'siergieyk@gmail.com', 0, NULL, NULL, 'https://upload.wikimedia.org/wikipedia/commons/3/34/Labrador_on_Quantock_%282175262184%29.jpg', 'Dog', 'Labrador','2','5','Yellow','1-2 hours','Yes','Yes','No','Yes','Yes','Yes','206-206-999','shelter@gmail.com' ),
+(DEFAULT, 'Mittens', 'siergieyk@gmail.com', 0, NULL, NULL, 'https://upload.wikimedia.org/wikipedia/commons/e/e8/Sphinx2_July_2006.jpg', 'Cat', 'Sphinx', '2','10','White','1-2 hours','Yes','Yes','No','Yes','Yes','Yes','206-206-999','shelter@gmail.com' );
 
 
 DROP TABLE IF EXISTS `users`;

@@ -45,16 +45,15 @@ export default function LoginPage() {
             <Link to={"/about"} className="nav-link">About</Link>
             </li>
 
-            <li className="nav-item">
-            <Link to={"/ImageForm"} className="nav-link">Upload</Link>
-            </li>
                           
             <li className="nav-item">
             <Link to={"/contact"} className="nav-link">Contact</Link></li>
-                    
+        
             <li className="nav-item">
-            <Link to={"/all-pets-list"} className="nav-link">All Pets</Link>
+            <Link to={"/ImageForm"} className="nav-link">Upload</Link>
             </li>
+                    
+         
         
               {/* if there is no user. show the login button */}
               {!isLoading && !user && (
@@ -78,11 +77,10 @@ export default function LoginPage() {
     !isLoading && user && (
                 <>
                   
+   <li className="nav-item">
+            <Link to={"/all-pets-list"} className="nav-link">Potential Matches</Link>
+            </li>
 
-
-<li className="nav-item">
-<Link to={"/pets"} className="nav-link">Pets</Link>
-</li>
         
         <li className="nav-item">
 <Link to={"/petprofile"} className="nav-link">Pet Profiles</Link></li>

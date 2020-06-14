@@ -121,7 +121,7 @@ export default class UsersList extends Component {
             </div>
           </div>
         </div>
-        <div>
+        <div style={{marginBottom:'20px'}} className="col-md-6">
           <h4>User</h4>
 
           <ul className="list-group">
@@ -147,10 +147,10 @@ export default class UsersList extends Component {
             Remove All
           </button>
         </div>
-        <div style={{padding:'20px',  borderRadius:'10px', background:"#fff",
-  border: "solid 2px #000", backgroundColor:"rgba(255,255,255,0.4)", borderColor: "grey", width:'auto'}} className="col-md-6">
+        <div  className="col-md-6">
           {currentUser ? (
-            <div>
+            <div style={{padding:'20px',  borderRadius:'10px', background:"#fff",
+  border: "solid 2px #000", backgroundColor:"rgba(255,255,255,0.4)", borderColor: "grey", width:'auto'}}>
               <h4>User</h4>
            
                 <div>
