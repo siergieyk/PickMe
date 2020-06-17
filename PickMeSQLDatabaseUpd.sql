@@ -59,4 +59,4 @@ PRIMARY KEY (`id`)) ENGINE=InnoDB;
 
 
 INSERT INTO `users` (`id`,`title`,`description`,`published`,`createdAt`,`updatedAt`, `image`, `home`,`backyard`,`work`,`time`,`cats`,`dogs`,`children`,`foster`,`adoption`)VALUES
-('siergieyl@gmail.com', 'Siergiey', 'Likes to walk', 0, NULL, NULL, DEFAULT, 'house','yes','8','4','yes','no','no','yes','no' );
+('siergieyk@gmail.com', 'Siergiey', 'Likes to walk', 0, NULL, NULL, DEFAULT, 'house','yes','8','4','yes','no','no','yes','no' );
