@@ -4,10 +4,10 @@
 <p>For example, John lives in a studio apartment and works 8 hours a day. Because of that, all the large dogs over 50lb will be removed from the recommendations, since most of the apartments do not allow large dogs, and a small studio apartment won't be suitable for a large dog.</p>
 
 <h1>This application utilizes 4 technologies:</h1>
-1. Backend: MySQL database.
-2. Backend: Express.js that pull data from MySQL database and generates a link that is being parsed by the frontend.
-3. Frontend: React.js.
-4. User Authentication: Auth0.
+1. Backend: MySQL database
+2. Backend: Express.js that pull data from MySQL database and generates a link that is being parsed by the frontend
+3. Frontend: React.js
+4. User Authentication: Auth0
 
 <h1>Starting the application</h1>
 
