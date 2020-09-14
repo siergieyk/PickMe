@@ -14,8 +14,8 @@ export class Auth0Provider extends Component {
 		user: null
 	};
 	config = {
-		domain: '',
-		client_id: '',
+		domain: 'pick.auth0.com',
+		client_id: 'eXFXn9GiVI1Pex4JqkC6j3tlCIwG3TZc',
 		redirect_uri: window.location.origin
 	};
 
